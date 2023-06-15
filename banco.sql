@@ -8,5 +8,5 @@ CREATE TABLE CONTA(
     con_data DATE NOT NULL,
     con_status BOOLEAN NOT NULl,
     con_cli_cpf VARCHAR(11) NOT NULL,
-    FOREIGN KEY (con_cli_cpf) REFERENCES CLIENTE(cli_cpf)
+    FOREIGN KEY (con_cli_cpf) REFERENCES CLIENTE(cli_cpf) ON DELETE CASCADE
 )
