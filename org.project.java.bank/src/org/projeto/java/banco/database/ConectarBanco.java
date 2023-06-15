@@ -10,7 +10,7 @@ public class ConectarBanco {
 	private final static String DB_PASS = "root";
 	private final static String DB_ADDRESS = "localhost";
 	private final static String DB_SCHEMA = "BANCOJAVA";
-	private final static String DB_PORT = "3306";
+	private final static String DB_PORT = "3307";
 	
 	public Connection getConnection() {
 		

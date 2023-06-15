@@ -54,7 +54,7 @@ public class ContasDAO {
 		}
 	}
 	public void updateConta(double saldo, boolean status,int numero) {
-		String sql = "UPDATE CONTA SET con_saldo = ?, con_status = ? WHERE con_numero = ? AND con_cli_cpf = ?;";
+		String sql = "UPDATE CONTA SET con_saldo = ?, con_status = ? WHERE con_numero = ?;";
 		try {
 			PreparedStatement pstm = conn.getConnection().prepareStatement(sql);
 			pstm.setDouble(1, saldo);
@@ -78,21 +78,21 @@ public class ContasDAO {
 	public ContaBancaria getContaByNumber(int number) {
 		String sql = "SELECT * FROM CONTA WHERE con_numero = ?";
 		ResultSet rs;
-		ContaBancaria c = null;
 		try {
 			PreparedStatement pstm = conn.getConnection().prepareStatement(sql);
 			pstm.setInt(1, number);
 			rs = pstm.executeQuery();
-			c = new ContaBancaria();
+			ContaBancaria c = new ContaBancaria();
 			while(rs.next()) {
 				c.setData(rs.getDate("con_data"));
 				c.setNumeroConta(rs.getInt("con_numero"));
 				c.setSaldo(rs.getDouble("con_saldo"));
 				c.setStatus(rs.getBoolean("con_status"));
+				return c;
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return c;
+		return null;
 	}
 }
