@@ -11,6 +11,7 @@ public class Aplicacao {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ClienteDAO clienteDAO;
+		ContaBancaria conta;
 		while(true) {
 			System.out.println("Escolha uma das opções abaixo:");
 			System.out.println("1. Realizar cadastro");
@@ -46,7 +47,7 @@ public class Aplicacao {
 						int novaSelecao = scanner.nextInt();
 						
 						if(novaSelecao == 1) {
-							ContaBancaria conta = new ContaBancaria();
+							conta = new ContaBancaria();
 							clienteDAO.addConta(conta, cpf);
 							System.out.println("conta criada com sucesso");
 						}else if(novaSelecao == 2) {
@@ -77,10 +78,12 @@ public class Aplicacao {
 										System.out.println("digite a quantia que deseja sacar");
 										double sacar = scanner.nextDouble();
 										contaSelecionada.sacar(sacar);
+										clienteDAO.updateConta(contaSelecionada.getSaldo(), contaSelecionada.getStatus(), contaSelecionada.getNumeroConta());
 									}else if(selecaoConta == 3) {
 										System.out.println("digite a quantia que deseja depositar");
 										double depositar = scanner.nextDouble();
 										contaSelecionada.depositar(depositar);
+										clienteDAO.updateConta(contaSelecionada.getSaldo(), contaSelecionada.getStatus(), contaSelecionada.getNumeroConta());
 									}else if(selecaoConta == 4) {
 										System.out.println("numero da conta de destino");
 										int numeroDestino = scanner.nextInt();
@@ -92,10 +95,11 @@ public class Aplicacao {
 										}
 									}else if(selecaoConta == 5) {
 										contaSelecionada.desativar();
+										clienteDAO.updateConta(contaSelecionada.getSaldo(), contaSelecionada.getStatus(), contaSelecionada.getNumeroConta());
 									}else if(selecaoConta == 6) {
+										clienteDAO.updateConta(contaSelecionada.getSaldo(), contaSelecionada.getStatus(), contaSelecionada.getNumeroConta());
 										contaSelecionada.ativar();
 									}else if(selecaoConta == 7) {
-										clienteDAO.updateConta(contaSelecionada.getSaldo(), contaSelecionada.getStatus(), contaSelecionada.getNumeroConta());
 										break;
 									}
 								}

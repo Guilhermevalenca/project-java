@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class ConectarBanco {
 	
-	private final static String DB_USER = "root";
-	private final static String DB_PASS = "root";
+	private final static String DB_USER = "gui";
+	private final static String DB_PASS = "rock1109";
 	private final static String DB_ADDRESS = "localhost";
 	private final static String DB_SCHEMA = "BANCOJAVA";
-	private final static String DB_PORT = "3307";
+	private final static String DB_PORT = "3306";
 	
 	public Connection getConnection() {
 		

@@ -25,8 +25,9 @@ public class ContasDAO {
 			pstm.setString(1, cpf);
 			rs = pstm.executeQuery();
 			contas = new ArrayList<>();
-			ContaBancaria c = new ContaBancaria();
+			ContaBancaria c;
 			while(rs.next()) {
+				c = new ContaBancaria();
 				c.setData(rs.getDate("con_data"));
 				c.setNumeroConta(rs.getInt("con_numero"));
 				c.setSaldo(rs.getDouble("con_saldo"));
