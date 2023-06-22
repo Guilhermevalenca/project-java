@@ -136,11 +136,8 @@ public class Aplicacao {
 							System.out.println("Saldo total: " + cliente.saldoTotal());
 						}else if(novaSelecao == 6) {
 							break;
-						}
-						
+						}	
 					}
-					
-					
 				}else {
 					System.out.println("cliente nao cadastrado");
 				}
