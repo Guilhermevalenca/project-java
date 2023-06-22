@@ -63,13 +63,13 @@ public class ContaBancaria {
 	public boolean transferir(double quantia, ContaBancaria destino) {
 		if(!this.status) {
 			System.out.println("conta desativada");
-		}else if(destino.status != true) {
+		}else if(destino.getStatus() != true) {
 			System.out.println("conta de destino esta desativada");
 		}else if(quantia < 0 || quantia > this.saldo) {
 			System.out.println("quantia invalida");
 		}else {
 			this.saldo -= quantia;
-			destino.saldo += quantia;
+			destino.setSaldo(destino.getSaldo() + quantia);			
 			return true;
 		}return false;
 	}

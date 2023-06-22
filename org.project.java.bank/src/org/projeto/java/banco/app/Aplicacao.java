@@ -43,7 +43,8 @@ public class Aplicacao {
 						System.out.println("2. vizualizar contas");
 						System.out.println("3. entrar na conta");
 						System.out.println("4. informações do cliente");
-						System.out.println("5. Sair");
+						System.out.println("5. saldo total");
+						System.out.println("6. Sair");
 						int novaSelecao = scanner.nextInt();
 						
 						if(novaSelecao == 1) {
@@ -132,6 +133,8 @@ public class Aplicacao {
 							}
 							
 						}else if(novaSelecao == 5) {
+							System.out.println("Saldo total: " + cliente.saldoTotal());
+						}else if(novaSelecao == 6) {
 							break;
 						}
 						
